@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 session_start();
 
-const OWNER_PASSWORD = 'NikolayB_ChangeThis123!';
+const OWNER_PASSWORD = '1352647832';
 const COMMENTS_FILE = __DIR__ . '/comments.json';
 
 header('Content-Type: application/json; charset=utf-8');
