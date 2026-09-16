@@ -775,6 +775,39 @@
 
     </main>
 
+    <!-- КОММЕНТАРИИ -->
+
+<section class="comments">
+
+    <h2>Комментарии</h2>
+
+    <form id="commentForm">
+
+        <input
+            type="text"
+            id="commentName"
+            placeholder="Твоё имя"
+            maxlength="30"
+            required
+        >
+
+        <textarea
+            id="commentText"
+            placeholder="Напиши комментарий..."
+            maxlength="300"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Оставить комментарий
+        </button>
+
+    </form>
+
+    <div id="commentsList"></div>
+
+</section>
+
 
     <!-- =========================
          УВЕДОМЛЕНИЕ
