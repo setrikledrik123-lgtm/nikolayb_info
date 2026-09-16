@@ -1287,6 +1287,155 @@
             }
         );
 
+        /* =========================
+   КОММЕНТАРИИ
+========================= */
+
+const commentForm =
+    document.getElementById("commentForm");
+
+const commentsList =
+    document.getElementById("commentsList");
+
+
+function loadComments() {
+
+    const comments =
+        JSON.parse(
+            localStorage.getItem("profileComments") || "[]"
+        );
+
+    commentsList.innerHTML = "";
+
+
+    if (comments.length === 0) {
+
+        commentsList.innerHTML = `
+            <div class="comment">
+                <div class="comment-text">
+                    Пока комментариев нет.
+                </div>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    comments
+        .slice()
+        .reverse()
+        .forEach(comment => {
+
+            const element =
+                document.createElement("div");
+
+            element.className = "comment";
+
+
+            const name =
+                document.createElement("div");
+
+            name.className = "comment-name";
+
+            name.textContent =
+                comment.name;
+
+
+            const text =
+                document.createElement("div");
+
+            text.className = "comment-text";
+
+            text.textContent =
+                comment.text;
+
+
+            const date =
+                document.createElement("div");
+
+            date.className = "comment-date";
+
+            date.textContent =
+                comment.date;
+
+
+            element.appendChild(name);
+
+            element.appendChild(text);
+
+            element.appendChild(date);
+
+
+            commentsList.appendChild(
+                element
+            );
+
+        });
+
+}
+
+
+commentForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "commentName"
+            ).value.trim();
+
+
+        const text =
+            document.getElementById(
+                "commentText"
+            ).value.trim();
+
+
+        if (!name || !text) {
+            return;
+        }
+
+
+        const comments =
+            JSON.parse(
+                localStorage.getItem(
+                    "profileComments"
+                ) || "[]"
+            );
+
+
+        comments.push({
+
+            name: name,
+
+            text: text,
+
+            date: new Date()
+                .toLocaleString("ru-RU")
+
+        });
+
+
+        localStorage.setItem(
+            "profileComments",
+            JSON.stringify(comments)
+        );
+
+
+        commentForm.reset();
+
+        loadComments();
+
+    }
+);
+
+
+loadComments();
+
     </script>
 
 
