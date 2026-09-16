@@ -47,140 +47,6 @@
             overflow-x: hidden;
         }
 
-        /* =========================
-   КОММЕНТАРИИ
-========================= */
-
-.comments {
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: left;
-}
-
-.comments h2 {
-    text-align: center;
-    font-size: 22px;
-    margin-bottom: 18px;
-}
-
-#commentForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#commentForm input,
-#commentForm textarea {
-
-    width: 100%;
-
-    padding: 13px;
-
-    border-radius: 12px;
-
-    border: 1px solid rgba(255,255,255,0.1);
-
-    background: rgba(255,255,255,0.06);
-
-    color: white;
-
-    outline: none;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 14px;
-}
-
-#commentForm textarea {
-    min-height: 90px;
-    resize: vertical;
-}
-
-#commentForm input::placeholder,
-#commentForm textarea::placeholder {
-    color: #8f96a3;
-}
-
-#commentForm input:focus,
-#commentForm textarea:focus {
-    border-color: #5865f2;
-}
-
-#commentForm button {
-
-    border: 0;
-
-    border-radius: 12px;
-
-    padding: 13px;
-
-    background: #5865f2;
-
-    color: white;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-#commentForm button:hover {
-    background: #6975f5;
-    transform: translateY(-1px);
-}
-
-#commentsList {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    margin-top: 20px;
-}
-
-.comment {
-
-    padding: 13px;
-
-    border-radius: 12px;
-
-    background: rgba(255,255,255,0.05);
-
-    border: 1px solid rgba(255,255,255,0.07);
-}
-
-.comment-name {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-
-.comment-text {
-
-    color: #c4c8d1;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-
-    word-break: break-word;
-}
-
-.comment-date {
-
-    margin-top: 7px;
-
-    color: #737986;
-
-    font-size: 11px;
-}
-
 
         /* =========================
            КНОПКА МУЗЫКИ
@@ -281,6 +147,7 @@
         .profile {
 
             width: 100%;
+
             max-width: 430px;
 
             padding:
@@ -619,6 +486,202 @@
 
 
         /* =========================
+           КОММЕНТАРИИ
+        ========================= */
+
+        .comments {
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            text-align: left;
+        }
+
+        .comments h2 {
+
+            text-align: center;
+
+            font-size: 22px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* ФОРМА */
+
+        #commentForm {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        #commentForm input,
+        #commentForm textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            background:
+                rgba(255,255,255,0.06);
+
+            color: white;
+
+            outline: none;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            font-size: 14px;
+        }
+
+        #commentForm textarea {
+
+            min-height: 90px;
+
+            resize: vertical;
+        }
+
+        #commentForm input::placeholder,
+        #commentForm textarea::placeholder {
+
+            color: #8f96a3;
+        }
+
+        #commentForm input:focus,
+        #commentForm textarea:focus {
+
+            border-color:
+                #5865f2;
+        }
+
+        #commentForm button {
+
+            border: 0;
+
+            border-radius: 12px;
+
+            padding: 13px;
+
+            background:
+                #5865f2;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                0.2s;
+        }
+
+        #commentForm button:hover {
+
+            background:
+                #6975f5;
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* СПИСОК */
+
+        #commentsList {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        /* ОДИН КОММЕНТАРИЙ */
+
+        .comment {
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.07);
+        }
+
+        .comment-name {
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            margin-bottom: 6px;
+        }
+
+        .comment-text {
+
+            color:
+                #c4c8d1;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            word-break:
+                break-word;
+
+            white-space:
+                pre-wrap;
+        }
+
+        .comment-date {
+
+            margin-top: 7px;
+
+            color:
+                #737986;
+
+            font-size: 11px;
+        }
+
+        .empty-comments {
+
+            text-align: center;
+
+            color:
+                #737986;
+
+            font-size: 13px;
+
+            padding: 15px;
+        }
+
+
+        /* =========================
            УВЕДОМЛЕНИЕ
         ========================= */
 
@@ -641,7 +704,8 @@
 
             border-radius: 14px;
 
-            background: #181c25;
+            background:
+                #181c25;
 
             border:
                 1px solid
@@ -661,7 +725,8 @@
 
             pointer-events: none;
 
-            transition: 0.25s ease;
+            transition:
+                0.25s ease;
 
             z-index: 200;
         }
@@ -676,7 +741,8 @@
 
         .toast strong {
 
-            color: #23d366;
+            color:
+                #23d366;
         }
 
 
@@ -685,6 +751,15 @@
         ========================= */
 
         @media (max-width: 500px) {
+
+            body {
+
+                align-items:
+                    flex-start;
+
+                padding-top:
+                    80px;
+            }
 
             .profile {
 
@@ -770,7 +845,7 @@
             <img
                 class="avatar"
                 src="avatar.png"
-                alt="">
+                alt="Аватар NikolayB">
 
         </div>
 
@@ -793,7 +868,9 @@
         </div>
 
 
-        <!-- КНОПКИ -->
+        <!-- =========================
+             КНОПКИ
+        ========================= -->
 
         <div class="buttons-container">
 
@@ -907,40 +984,52 @@
         </p>
 
 
+        <!-- =========================
+             КОММЕНТАРИИ
+        ========================= -->
+
+        <section class="comments">
+
+            <h2>
+                Комментарии
+            </h2>
+
+
+            <form id="commentForm">
+
+
+                <input
+                    type="text"
+                    id="commentName"
+                    placeholder="Твоё имя"
+                    maxlength="30"
+                    required>
+
+
+                <textarea
+                    id="commentText"
+                    placeholder="Напиши комментарий..."
+                    maxlength="300"
+                    required></textarea>
+
+
+                <button
+                    type="submit">
+
+                    Оставить комментарий
+
+                </button>
+
+
+            </form>
+
+
+            <div id="commentsList"></div>
+
+        </section>
+
+
     </main>
-
-    <!-- КОММЕНТАРИИ -->
-
-<section class="comments">
-
-    <h2>Комментарии</h2>
-
-    <form id="commentForm">
-
-        <input
-            type="text"
-            id="commentName"
-            placeholder="Твоё имя"
-            maxlength="30"
-            required
-        >
-
-        <textarea
-            id="commentText"
-            placeholder="Напиши комментарий..."
-            maxlength="300"
-            required
-        ></textarea>
-
-        <button type="submit">
-            Оставить комментарий
-        </button>
-
-    </form>
-
-    <div id="commentsList"></div>
-
-</section>
 
 
     <!-- =========================
@@ -969,43 +1058,126 @@
 
 
         /* =========================
-           ЭЛЕМЕНТЫ
+           DISCORD
         ========================= */
 
         const discordUsername =
             "niko_1352647832";
-
 
         const discordButton =
             document.getElementById(
                 "discordButton"
             );
 
-
         const toast =
             document.getElementById(
                 "toast"
             );
 
+        let toastTimeout = null;
+
+
+        function showToast() {
+
+            if (toastTimeout) {
+
+                clearTimeout(
+                    toastTimeout
+                );
+
+            }
+
+            toast.classList.add(
+                "show"
+            );
+
+            toastTimeout =
+                setTimeout(
+                    () => {
+
+                        toast.classList.remove(
+                            "show"
+                        );
+
+                    },
+                    4500
+                );
+
+        }
+
+
+        discordButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    await navigator.clipboard.writeText(
+                        discordUsername
+                    );
+
+                    showToast();
+
+                } catch (error) {
+
+                    const textarea =
+                        document.createElement(
+                            "textarea"
+                        );
+
+                    textarea.value =
+                        discordUsername;
+
+                    textarea.style.position =
+                        "fixed";
+
+                    textarea.style.opacity =
+                        "0";
+
+                    document.body.appendChild(
+                        textarea
+                    );
+
+                    textarea.select();
+
+                    try {
+
+                        document.execCommand(
+                            "copy"
+                        );
+
+                    } catch (copyError) {
+
+                        console.log(
+                            copyError
+                        );
+
+                    }
+
+                    textarea.remove();
+
+                    showToast();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           МУЗЫКА
+        ========================= */
 
         const audio =
             document.getElementById(
                 "bgMusic"
             );
 
-
         const musicToggle =
             document.getElementById(
                 "musicToggle"
             );
 
-
-        let toastTimeout = null;
-
-
-        /* =========================
-           СОСТОЯНИЕ МУЗЫКИ
-        ========================= */
 
         function setMusicPlaying() {
 
@@ -1025,10 +1197,6 @@
         }
 
 
-        /* =========================
-           АВТОЗАПУСК
-        ========================= */
-
         async function startMusic() {
 
             try {
@@ -1037,16 +1205,12 @@
 
                 setMusicPlaying();
 
-                console.log(
-                    "Музыка запущена автоматически."
-                );
-
                 removeFirstInteraction();
 
             } catch (error) {
 
                 console.log(
-                    "Браузер заблокировал автозапуск."
+                    "Автозапуск заблокирован браузером."
                 );
 
             }
@@ -1054,14 +1218,12 @@
         }
 
 
-        /* =========================
-           ПЕРВЫЙ КЛИК
-        ========================= */
-
         async function firstInteraction() {
 
             if (!audio.paused) {
+
                 return;
+
             }
 
             try {
@@ -1075,8 +1237,7 @@
             } catch (error) {
 
                 console.log(
-                    "Не удалось запустить музыку:",
-                    error
+                    "Не удалось запустить музыку."
                 );
 
             }
@@ -1104,10 +1265,6 @@
         }
 
 
-        /* =========================
-           ЗАПУСК ПРИ ВХОДЕ
-        ========================= */
-
         window.addEventListener(
             "load",
             () => {
@@ -1118,21 +1275,15 @@
         );
 
 
-        /* =========================
-           ЕСЛИ АВТОЗАПУСК ЗАБЛОКИРОВАН
-        ========================= */
-
         document.addEventListener(
             "click",
             firstInteraction
         );
 
-
         document.addEventListener(
             "touchstart",
             firstInteraction
         );
-
 
         document.addEventListener(
             "keydown",
@@ -1140,16 +1291,11 @@
         );
 
 
-        /* =========================
-           КНОПКА МУЗЫКИ
-        ========================= */
-
         musicToggle.addEventListener(
             "click",
             async (event) => {
 
                 event.stopPropagation();
-
 
                 if (audio.paused) {
 
@@ -1161,10 +1307,7 @@
 
                     } catch (error) {
 
-                        console.log(
-                            "Не удалось запустить музыку:",
-                            error
-                        );
+                        console.log(error);
 
                     }
 
@@ -1181,264 +1324,225 @@
 
 
         /* =========================
-           УВЕДОМЛЕНИЕ
+           КОММЕНТАРИИ
         ========================= */
 
-        function showToast() {
+        const commentForm =
+            document.getElementById(
+                "commentForm"
+            );
 
-            if (toastTimeout) {
-
-                clearTimeout(
-                    toastTimeout
-                );
-
-            }
-
-
-            toast.classList.add(
-                "show"
+        const commentsList =
+            document.getElementById(
+                "commentsList"
             );
 
 
-            toastTimeout =
-                setTimeout(
-                    () => {
+        function getComments() {
 
-                        toast.classList.remove(
-                            "show"
-                        );
+            try {
 
-                        toastTimeout = null;
-
-                    },
-                    4500
+                return JSON.parse(
+                    localStorage.getItem(
+                        "profileComments"
+                    ) || "[]"
                 );
+
+            } catch (error) {
+
+                return [];
+
+            }
 
         }
 
 
-        /* =========================
-           DISCORD
-        ========================= */
+        function saveComments(comments) {
 
-        discordButton.addEventListener(
-            "click",
-            async () => {
+            localStorage.setItem(
+                "profileComments",
+                JSON.stringify(comments)
+            );
 
-                try {
+        }
 
-                    await navigator.clipboard.writeText(
-                        discordUsername
-                    );
 
-                    showToast();
+        function loadComments() {
 
-                } catch (error) {
+            const comments =
+                getComments();
 
-                    const textarea =
-                        document.createElement(
-                            "textarea"
+
+            commentsList.innerHTML = "";
+
+
+            if (comments.length === 0) {
+
+                commentsList.innerHTML = `
+
+                    <div class="empty-comments">
+
+                        Пока комментариев нет.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            comments
+                .slice()
+                .reverse()
+                .forEach(
+                    comment => {
+
+
+                        const element =
+                            document.createElement(
+                                "div"
+                            );
+
+                        element.className =
+                            "comment";
+
+
+                        const name =
+                            document.createElement(
+                                "div"
+                            );
+
+                        name.className =
+                            "comment-name";
+
+                        name.textContent =
+                            comment.name;
+
+
+                        const text =
+                            document.createElement(
+                                "div"
+                            );
+
+                        text.className =
+                            "comment-text";
+
+                        text.textContent =
+                            comment.text;
+
+
+                        const date =
+                            document.createElement(
+                                "div"
+                            );
+
+                        date.className =
+                            "comment-date";
+
+                        date.textContent =
+                            comment.date;
+
+
+                        element.appendChild(
+                            name
+                        );
+
+                        element.appendChild(
+                            text
+                        );
+
+                        element.appendChild(
+                            date
                         );
 
 
-                    textarea.value =
-                        discordUsername;
-
-
-                    textarea.style.position =
-                        "fixed";
-
-
-                    textarea.style.opacity =
-                        "0";
-
-
-                    document.body.appendChild(
-                        textarea
-                    );
-
-
-                    textarea.select();
-
-
-                    try {
-
-                        document.execCommand(
-                            "copy"
-                        );
-
-                    } catch (copyError) {
-
-                        console.log(
-                            "Не удалось скопировать:",
-                            copyError
+                        commentsList.appendChild(
+                            element
                         );
 
                     }
+                );
+
+        }
 
 
-                    textarea.remove();
+        commentForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
 
 
-                    showToast();
+                const name =
+                    document
+                        .getElementById(
+                            "commentName"
+                        )
+                        .value
+                        .trim();
+
+
+                const text =
+                    document
+                        .getElementById(
+                            "commentText"
+                        )
+                        .value
+                        .trim();
+
+
+                if (
+                    !name ||
+                    !text
+                ) {
+
+                    return;
 
                 }
+
+
+                const comments =
+                    getComments();
+
+
+                comments.push({
+
+                    name:
+                        name,
+
+                    text:
+                        text,
+
+                    date:
+                        new Date()
+                            .toLocaleString(
+                                "ru-RU"
+                            )
+
+                });
+
+
+                saveComments(
+                    comments
+                );
+
+
+                commentForm.reset();
+
+
+                loadComments();
 
             }
         );
 
-        /* =========================
-   КОММЕНТАРИИ
-========================= */
-
-const commentForm =
-    document.getElementById("commentForm");
-
-const commentsList =
-    document.getElementById("commentsList");
-
-
-function loadComments() {
-
-    const comments =
-        JSON.parse(
-            localStorage.getItem("profileComments") || "[]"
-        );
-
-    commentsList.innerHTML = "";
-
-
-    if (comments.length === 0) {
-
-        commentsList.innerHTML = `
-            <div class="comment">
-                <div class="comment-text">
-                    Пока комментариев нет.
-                </div>
-            </div>
-        `;
-
-        return;
-    }
-
-
-    comments
-        .slice()
-        .reverse()
-        .forEach(comment => {
-
-            const element =
-                document.createElement("div");
-
-            element.className = "comment";
-
-
-            const name =
-                document.createElement("div");
-
-            name.className = "comment-name";
-
-            name.textContent =
-                comment.name;
-
-
-            const text =
-                document.createElement("div");
-
-            text.className = "comment-text";
-
-            text.textContent =
-                comment.text;
-
-
-            const date =
-                document.createElement("div");
-
-            date.className = "comment-date";
-
-            date.textContent =
-                comment.date;
-
-
-            element.appendChild(name);
-
-            element.appendChild(text);
-
-            element.appendChild(date);
-
-
-            commentsList.appendChild(
-                element
-            );
-
-        });
-
-}
-
-
-commentForm.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById(
-                "commentName"
-            ).value.trim();
-
-
-        const text =
-            document.getElementById(
-                "commentText"
-            ).value.trim();
-
-
-        if (!name || !text) {
-            return;
-        }
-
-
-        const comments =
-            JSON.parse(
-                localStorage.getItem(
-                    "profileComments"
-                ) || "[]"
-            );
-
-
-        comments.push({
-
-            name: name,
-
-            text: text,
-
-            date: new Date()
-                .toLocaleString("ru-RU")
-
-        });
-
-
-        localStorage.setItem(
-            "profileComments",
-            JSON.stringify(comments)
-        );
-
-
-        commentForm.reset();
 
         loadComments();
 
-    }
-);
-
-
-loadComments();
-
     </script>
-
 
 </body>
 
 </html>
+
