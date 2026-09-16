@@ -47,6 +47,140 @@
             overflow-x: hidden;
         }
 
+        /* =========================
+   КОММЕНТАРИИ
+========================= */
+
+.comments {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+}
+
+.comments h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#commentForm input,
+#commentForm textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: rgba(255,255,255,0.06);
+
+    color: white;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+}
+
+#commentForm textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+#commentForm input::placeholder,
+#commentForm textarea::placeholder {
+    color: #8f96a3;
+}
+
+#commentForm input:focus,
+#commentForm textarea:focus {
+    border-color: #5865f2;
+}
+
+#commentForm button {
+
+    border: 0;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    background: #5865f2;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#commentForm button:hover {
+    background: #6975f5;
+    transform: translateY(-1px);
+}
+
+#commentsList {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.comment {
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.07);
+}
+
+.comment-name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.comment-text {
+
+    color: #c4c8d1;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+.comment-date {
+
+    margin-top: 7px;
+
+    color: #737986;
+
+    font-size: 11px;
+}
+
 
         /* =========================
            КНОПКА МУЗЫКИ
