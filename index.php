@@ -1,4 +1,7 @@
-
+```php
+<?php
+declare(strict_types=1);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -512,8 +515,6 @@
         }
 
 
-        /* ФОРМА */
-
         #commentForm {
 
             display: flex;
@@ -603,7 +604,48 @@
         }
 
 
-        /* СПИСОК */
+        /* =========================
+           КНОПКА ВЛАДЕЛЬЦА
+        ========================= */
+
+        .owner-button {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 9px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-radius: 10px;
+
+            background:
+                rgba(255,255,255,0.03);
+
+            color: #777f91;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .owner-button:hover {
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+        }
+
+
+        /* =========================
+           СПИСОК КОММЕНТАРИЕВ
+        ========================= */
 
         #commentsList {
 
@@ -617,8 +659,6 @@
         }
 
 
-        /* ОДИН КОММЕНТАРИЙ */
-
         .comment {
 
             padding: 13px;
@@ -631,6 +671,37 @@
             border:
                 1px solid
                 rgba(255,255,255,0.07);
+
+            animation:
+                commentAppear
+                0.25s ease;
+        }
+
+        @keyframes commentAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .comment-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 6px;
         }
 
         .comment-name {
@@ -638,8 +709,16 @@
             font-weight: 700;
 
             font-size: 14px;
+        }
 
-            margin-bottom: 6px;
+        .comment-date {
+
+            color:
+                #737986;
+
+            font-size: 11px;
+
+            white-space: nowrap;
         }
 
         .comment-text {
@@ -658,15 +737,46 @@
                 pre-wrap;
         }
 
-        .comment-date {
 
-            margin-top: 7px;
+        /* =========================
+           УДАЛЕНИЕ
+        ========================= */
+
+        .delete-comment {
+
+            margin-top: 10px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            padding: 7px 10px;
+
+            background:
+                rgba(220, 50, 50, 0.15);
+
+            border:
+                1px solid
+                rgba(220, 50, 50, 0.25);
 
             color:
-                #737986;
+                #ff7070;
 
-            font-size: 11px;
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
         }
+
+        .delete-comment:hover {
+
+            background:
+                rgba(220, 50, 50, 0.3);
+
+            color: white;
+        }
+
 
         .empty-comments {
 
@@ -794,9 +904,7 @@
 <body>
 
 
-    <!-- =========================
-         МУЗЫКА
-    ========================= -->
+    <!-- МУЗЫКА -->
 
     <audio
         id="bgMusic"
@@ -806,9 +914,7 @@
     </audio>
 
 
-    <!-- =========================
-         КНОПКА МУЗЫКИ
-    ========================= -->
+    <!-- КНОПКА МУЗЫКИ -->
 
     <button
         class="music-toggle"
@@ -831,9 +937,7 @@
     </button>
 
 
-    <!-- =========================
-         ПРОФИЛЬ
-    ========================= -->
+    <!-- ПРОФИЛЬ -->
 
     <main class="profile">
 
@@ -868,9 +972,7 @@
         </div>
 
 
-        <!-- =========================
-             КНОПКИ
-        ========================= -->
+        <!-- КНОПКИ -->
 
         <div class="buttons-container">
 
@@ -997,7 +1099,6 @@
 
             <form id="commentForm">
 
-
                 <input
                     type="text"
                     id="commentName"
@@ -1009,20 +1110,32 @@
                 <textarea
                     id="commentText"
                     placeholder="Напиши комментарий..."
-                    maxlength="300"
+                    maxlength="500"
                     required></textarea>
 
 
-                <button
-                    type="submit">
+                <button type="submit">
 
                     Оставить комментарий
 
                 </button>
 
-
             </form>
 
+
+            <!-- ВХОД ВЛАДЕЛЬЦА -->
+
+            <button
+                type="button"
+                id="ownerButton"
+                class="owner-button">
+
+                Вход владельца
+
+            </button>
+
+
+            <!-- КОММЕНТАРИИ -->
 
             <div id="commentsList"></div>
 
@@ -1032,9 +1145,7 @@
     </main>
 
 
-    <!-- =========================
-         УВЕДОМЛЕНИЕ
-    ========================= -->
+    <!-- УВЕДОМЛЕНИЕ -->
 
     <div
         class="toast"
@@ -1337,140 +1448,310 @@
                 "commentsList"
             );
 
+        const ownerButton =
+            document.getElementById(
+                "ownerButton"
+            );
 
-        function getComments() {
+
+        /* =========================
+           ЗАГРУЗКА КОММЕНТАРИЕВ
+        ========================= */
+
+        async function loadComments() {
 
             try {
 
-                return JSON.parse(
-                    localStorage.getItem(
-                        "profileComments"
-                    ) || "[]"
+                const response =
+                    await fetch(
+                        "comments.php?action=get",
+                        {
+                            credentials: "same-origin"
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+
+                    throw new Error(
+                        "Ошибка загрузки"
+                    );
+
+                }
+
+
+                commentsList.innerHTML = "";
+
+
+                /* Если комментариев нет */
+
+                if (
+                    !data.comments ||
+                    data.comments.length === 0
+                ) {
+
+                    commentsList.innerHTML = `
+
+                        <div class="empty-comments">
+
+                            Пока комментариев нет.
+
+                        </div>
+
+                    `;
+
+                    updateOwnerButton(
+                        data.owner
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * Показываем новые комментарии
+                 * сверху
+                 */
+
+                data.comments
+                    .slice()
+                    .reverse()
+                    .forEach(
+                        comment => {
+
+                            const element =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            element.className =
+                                "comment";
+
+
+                            /* Верхняя часть */
+
+                            const top =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            top.className =
+                                "comment-top";
+
+
+                            /* Имя */
+
+                            const name =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            name.className =
+                                "comment-name";
+
+                            name.textContent =
+                                comment.name;
+
+
+                            /* Дата */
+
+                            const date =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            date.className =
+                                "comment-date";
+
+                            date.textContent =
+                                comment.date;
+
+
+                            top.appendChild(
+                                name
+                            );
+
+                            top.appendChild(
+                                date
+                            );
+
+
+                            /* Текст */
+
+                            const text =
+                                document.createElement(
+                                    "div"
+                                );
+
+                            text.className =
+                                "comment-text";
+
+                            text.textContent =
+                                comment.text;
+
+
+                            element.appendChild(
+                                top
+                            );
+
+                            element.appendChild(
+                                text
+                            );
+
+
+                            /*
+                             * Кнопка удаления
+                             * видна ТОЛЬКО владельцу
+                             */
+
+                            if (data.owner) {
+
+                                const deleteButton =
+                                    document.createElement(
+                                        "button"
+                                    );
+
+                                deleteButton.className =
+                                    "delete-comment";
+
+                                deleteButton.type =
+                                    "button";
+
+                                deleteButton.textContent =
+                                    "Удалить";
+
+
+                                deleteButton.addEventListener(
+                                    "click",
+                                    async () => {
+
+                                        const confirmed =
+                                            confirm(
+                                                "Удалить этот комментарий?"
+                                            );
+
+
+                                        if (!confirmed) {
+
+                                            return;
+
+                                        }
+
+
+                                        const formData =
+                                            new FormData();
+
+
+                                        formData.append(
+                                            "action",
+                                            "delete"
+                                        );
+
+                                        formData.append(
+                                            "id",
+                                            comment.id
+                                        );
+
+
+                                        try {
+
+                                            const response =
+                                                await fetch(
+                                                    "comments.php",
+                                                    {
+                                                        method: "POST",
+                                                        body: formData,
+                                                        credentials: "same-origin"
+                                                    }
+                                                );
+
+
+                                            const result =
+                                                await response.json();
+
+
+                                            if (
+                                                result.success
+                                            ) {
+
+                                                loadComments();
+
+                                            } else {
+
+                                                alert(
+                                                    result.message ||
+                                                    "Не удалось удалить комментарий."
+                                                );
+
+                                            }
+
+                                        } catch (error) {
+
+                                            console.error(
+                                                error
+                                            );
+
+                                            alert(
+                                                "Ошибка удаления комментария."
+                                            );
+
+                                        }
+
+                                    }
+                                );
+
+
+                                element.appendChild(
+                                    deleteButton
+                                );
+
+                            }
+
+
+                            commentsList.appendChild(
+                                element
+                            );
+
+                        }
+                    );
+
+
+                updateOwnerButton(
+                    data.owner
                 );
 
             } catch (error) {
 
-                return [];
-
-            }
-
-        }
-
-
-        function saveComments(comments) {
-
-            localStorage.setItem(
-                "profileComments",
-                JSON.stringify(comments)
-            );
-
-        }
-
-
-        function loadComments() {
-
-            const comments =
-                getComments();
-
-
-            commentsList.innerHTML = "";
-
-
-            if (comments.length === 0) {
+                console.error(
+                    error
+                );
 
                 commentsList.innerHTML = `
 
                     <div class="empty-comments">
 
-                        Пока комментариев нет.
+                        Не удалось загрузить комментарии.
 
                     </div>
 
                 `;
 
-                return;
-
             }
-
-
-            comments
-                .slice()
-                .reverse()
-                .forEach(
-                    comment => {
-
-
-                        const element =
-                            document.createElement(
-                                "div"
-                            );
-
-                        element.className =
-                            "comment";
-
-
-                        const name =
-                            document.createElement(
-                                "div"
-                            );
-
-                        name.className =
-                            "comment-name";
-
-                        name.textContent =
-                            comment.name;
-
-
-                        const text =
-                            document.createElement(
-                                "div"
-                            );
-
-                        text.className =
-                            "comment-text";
-
-                        text.textContent =
-                            comment.text;
-
-
-                        const date =
-                            document.createElement(
-                                "div"
-                            );
-
-                        date.className =
-                            "comment-date";
-
-                        date.textContent =
-                            comment.date;
-
-
-                        element.appendChild(
-                            name
-                        );
-
-                        element.appendChild(
-                            text
-                        );
-
-                        element.appendChild(
-                            date
-                        );
-
-
-                        commentsList.appendChild(
-                            element
-                        );
-
-                    }
-                );
 
         }
 
 
+        /* =========================
+           ДОБАВЛЕНИЕ КОММЕНТАРИЯ
+        ========================= */
+
         commentForm.addEventListener(
             "submit",
-            function(event) {
+            async event => {
 
                 event.preventDefault();
 
@@ -1493,50 +1774,241 @@
                         .trim();
 
 
-                if (
-                    !name ||
-                    !text
-                ) {
+                if (!text) {
+
+                    alert(
+                        "Напиши комментарий."
+                    );
 
                     return;
 
                 }
 
 
-                const comments =
-                    getComments();
+                const formData =
+                    new FormData();
 
 
-                comments.push({
+                formData.append(
+                    "action",
+                    "add"
+                );
 
-                    name:
-                        name,
+                formData.append(
+                    "name",
+                    name || "Гость"
+                );
 
-                    text:
-                        text,
-
-                    date:
-                        new Date()
-                            .toLocaleString(
-                                "ru-RU"
-                            )
-
-                });
-
-
-                saveComments(
-                    comments
+                formData.append(
+                    "text",
+                    text
                 );
 
 
-                commentForm.reset();
+                try {
+
+                    const response =
+                        await fetch(
+                            "comments.php",
+                            {
+                                method: "POST",
+                                body: formData,
+                                credentials: "same-origin"
+                            }
+                        );
 
 
-                loadComments();
+                    const result =
+                        await response.json();
+
+
+                    if (!result.success) {
+
+                        alert(
+                            result.message ||
+                            "Не удалось добавить комментарий."
+                        );
+
+                        return;
+
+                    }
+
+
+                    commentForm.reset();
+
+                    loadComments();
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+                    alert(
+                        "Ошибка при добавлении комментария."
+                    );
+
+                }
 
             }
         );
 
+
+        /* =========================
+           ВХОД ВЛАДЕЛЬЦА
+        ========================= */
+
+        async function ownerLogin() {
+
+            const password =
+                prompt(
+                    "Введите пароль владельца:"
+                );
+
+
+            if (!password) {
+
+                return;
+
+            }
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "action",
+                "login"
+            );
+
+            formData.append(
+                "password",
+                password
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "comments.php",
+                        {
+                            method: "POST",
+                            body: formData,
+                            credentials: "same-origin"
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (result.success) {
+
+                    alert(
+                        "Вы вошли как владелец."
+                    );
+
+                    loadComments();
+
+                } else {
+
+                    alert(
+                        "Неверный пароль."
+                    );
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+                alert(
+                    "Ошибка входа."
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           ВЫХОД ВЛАДЕЛЬЦА
+        ========================= */
+
+        async function ownerLogout() {
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "action",
+                "logout"
+            );
+
+
+            try {
+
+                await fetch(
+                    "comments.php",
+                    {
+                        method: "POST",
+                        body: formData,
+                        credentials: "same-origin"
+                    }
+                );
+
+                loadComments();
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           КНОПКА ВЛАДЕЛЬЦА
+        ========================= */
+
+        function updateOwnerButton(
+            isOwner
+        ) {
+
+            if (isOwner) {
+
+                ownerButton.textContent =
+                    "Выйти из режима владельца";
+
+                ownerButton.onclick =
+                    ownerLogout;
+
+            } else {
+
+                ownerButton.textContent =
+                    "Вход владельца";
+
+                ownerButton.onclick =
+                    ownerLogin;
+
+            }
+
+        }
+
+
+        /* =========================
+           ЗАПУСК
+        ========================= */
 
         loadComments();
 
@@ -1545,4 +2017,4 @@
 </body>
 
 </html>
-
+```
