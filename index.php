@@ -1,10 +1,6 @@
 
-<?php
-declare(strict_types=1);
-?>
 <!DOCTYPE html>
 <html lang="ru">
-```
 
 <head>
     <meta charset="UTF-8">
@@ -22,15 +18,11 @@ declare(strict_types=1);
 
         body {
             min-height: 100vh;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             padding: 20px;
-
             font-family: Arial, Helvetica, sans-serif;
-
             color: #fff;
 
             background:
@@ -47,92 +39,56 @@ declare(strict_types=1);
                 #0b0d12;
 
             position: relative;
-
             overflow-x: hidden;
         }
 
-
-        /* =========================
-           КНОПКА МУЗЫКИ
-        ========================= */
+        /* МУЗЫКА */
 
         .music-toggle {
-
             position: fixed;
-
             top: 20px;
             right: 20px;
-
             width: 48px;
             height: 48px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             background: rgba(255, 255, 255, 0.05);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.1);
-
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-
             cursor: pointer;
-
             transition: 0.25s ease;
-
             z-index: 100;
         }
 
         .music-toggle:hover {
-
-            background:
-                rgba(255, 255, 255, 0.1);
-
+            background: rgba(255, 255, 255, 0.1);
             transform: scale(1.08);
         }
 
         .music-toggle:active {
-
             transform: scale(0.95);
         }
 
         .music-toggle svg {
-
             width: 21px;
             height: 21px;
-
             fill: #aeb4c2;
-
             transition: 0.25s ease;
         }
 
         .music-toggle.playing {
-
-            background:
-                rgba(35, 211, 102, 0.1);
-
-            border-color:
-                rgba(35, 211, 102, 0.35);
-
-            box-shadow:
-                0 0 20px
-                rgba(35, 211, 102, 0.15);
+            background: rgba(35, 211, 102, 0.1);
+            border-color: rgba(35, 211, 102, 0.35);
+            box-shadow: 0 0 20px rgba(35, 211, 102, 0.15);
         }
 
         .music-toggle.playing svg {
-
             fill: #23d366;
-
-            animation:
-                musicSpin
-                4s linear infinite;
+            animation: musicSpin 4s linear infinite;
         }
 
         @keyframes musicSpin {
-
             from {
                 transform: rotate(0deg);
             }
@@ -140,23 +96,14 @@ declare(strict_types=1);
             to {
                 transform: rotate(360deg);
             }
-
         }
 
-
-        /* =========================
-           ПРОФИЛЬ
-        ========================= */
+        /* ПРОФИЛЬ */
 
         .profile {
-
             width: 100%;
-
             max-width: 430px;
-
-            padding:
-                34px 28px 30px;
-
+            padding: 34px 28px 30px;
             text-align: center;
 
             background:
@@ -167,67 +114,41 @@ declare(strict_types=1);
                 url("profile-bg.jpg");
 
             background-size: cover;
-
             background-position: center;
 
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.1);
-
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
 
             box-shadow:
-                0 25px 80px
-                rgba(0, 0, 0, 0.6);
+                0 25px 80px rgba(0, 0, 0, 0.6);
 
             backdrop-filter: blur(8px);
 
             position: relative;
-
             overflow: hidden;
 
-            animation:
-                profileAppear
-                0.6s ease;
+            animation: profileAppear 0.6s ease;
         }
 
         @keyframes profileAppear {
-
             from {
-
                 opacity: 0;
-
-                transform:
-                    translateY(20px)
-                    scale(0.97);
+                transform: translateY(20px) scale(0.97);
             }
 
             to {
-
                 opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
+                transform: translateY(0) scale(1);
             }
-
         }
 
-
-        /* =========================
-           АВАТАР
-        ========================= */
+        /* АВАТАР */
 
         .avatar-wrap {
-
             width: 150px;
             height: 150px;
-
-            margin:
-                0 auto 20px;
-
+            margin: 0 auto 20px;
             padding: 5px;
-
             border-radius: 50%;
 
             background:
@@ -238,103 +159,65 @@ declare(strict_types=1);
                 );
 
             box-shadow:
-                0 0 35px
-                rgba(88, 101, 242, 0.25);
+                0 0 35px rgba(88, 101, 242, 0.25);
 
             overflow: hidden;
         }
 
         .avatar {
-
             width: 100%;
             height: 100%;
-
             display: block;
-
             object-fit: cover;
-
-            object-position:
-                center 27%;
-
+            object-position: center 27%;
             border-radius: 50%;
-
-            border:
-                4px solid
-                #14171f;
-
-            transition:
-                transform 0.3s ease;
+            border: 4px solid #14171f;
+            transition: transform 0.3s ease;
         }
 
         .avatar-wrap:hover .avatar {
-
             transform: scale(1.06);
         }
 
-
-        /* =========================
-           ИМЯ
-        ========================= */
+        /* ИМЯ */
 
         .name {
-
             font-size: 30px;
-
             font-weight: 800;
-
             letter-spacing: 0.2px;
-
             margin-bottom: 8px;
 
             text-shadow:
-                0 2px 10px
-                rgba(0, 0, 0, 0.5);
+                0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-
-        /* =========================
-           СТАТУС
-        ========================= */
+        /* СТАТУС */
 
         .status {
-
             display: inline-flex;
-
             align-items: center;
-
             gap: 8px;
-
             color: #d0d4dd;
-
             font-size: 14px;
-
             margin-bottom: 28px;
 
             text-shadow:
-                0 2px 8px
-                rgba(0, 0, 0, 0.5);
+                0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .dot {
-
             width: 9px;
             height: 9px;
-
             border-radius: 50%;
-
             background: #23d366;
 
             box-shadow:
-                0 0 10px
-                rgba(35, 211, 102, 0.65);
+                0 0 10px rgba(35, 211, 102, 0.65);
 
-            animation:
-                onlinePulse
-                2s infinite;
+            animation: onlinePulse 2s infinite;
         }
 
         @keyframes onlinePulse {
-
             0%,
             100% {
                 opacity: 1;
@@ -343,40 +226,24 @@ declare(strict_types=1);
             50% {
                 opacity: 0.6;
             }
-
         }
 
-
-        /* =========================
-           КНОПКИ
-        ========================= */
+        /* КНОПКИ */
 
         .buttons-container {
-
             display: flex;
-
             flex-direction: column;
-
             gap: 12px;
         }
 
         .btn {
-
             width: 100%;
-
             border: 0;
-
             border-radius: 14px;
-
-            padding:
-                15px 18px;
-
+            padding: 15px 18px;
             color: white;
-
             font-size: 16px;
-
             font-weight: 700;
-
             cursor: pointer;
 
             transition:
@@ -385,301 +252,205 @@ declare(strict_types=1);
                 background 0.2s ease;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             gap: 10px;
-
             text-decoration: none;
         }
 
         .btn svg {
-
             width: 20px;
             height: 20px;
-
             fill: currentColor;
         }
 
         .btn:hover {
-
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
         }
 
         .btn:active {
-
-            transform:
-                translateY(0);
+            transform: translateY(0);
         }
 
-
-        /* =========================
-           DISCORD
-        ========================= */
+        /* DISCORD */
 
         .discord-button {
-
             background: #5865f2;
 
             box-shadow:
-                0 10px 25px
-                rgba(88, 101, 242, 0.28);
+                0 10px 25px rgba(88, 101, 242, 0.28);
         }
 
         .discord-button:hover {
-
             background: #6975f5;
 
             box-shadow:
-                0 14px 30px
-                rgba(88, 101, 242, 0.38);
+                0 14px 30px rgba(88, 101, 242, 0.38);
         }
 
-
-        /* =========================
-           STEAM
-        ========================= */
+        /* STEAM */
 
         .steam-button {
-
             background: #171a21;
 
             border:
-                1px solid
-                rgba(102, 192, 244, 0.2);
+                1px solid rgba(102, 192, 244, 0.2);
 
             box-shadow:
-                0 10px 25px
-                rgba(23, 26, 33, 0.45);
+                0 10px 25px rgba(23, 26, 33, 0.45);
         }
 
         .steam-button:hover {
-
             background: #2a475e;
-
-            border-color:
-                #66c0f4;
+            border-color: #66c0f4;
 
             box-shadow:
-                0 14px 30px
-                rgba(102, 192, 244, 0.25);
+                0 14px 30px rgba(102, 192, 244, 0.25);
         }
 
-
-        /* =========================
-           ПОДСКАЗКА
-        ========================= */
+        /* ПОДСКАЗКА */
 
         .hint {
-
             margin-top: 16px;
-
             color: #b0b5c0;
-
             font-size: 12px;
-
             line-height: 1.5;
 
             text-shadow:
-                0 2px 8px
-                rgba(0, 0, 0, 0.6);
+                0 2px 8px rgba(0, 0, 0, 0.6);
         }
 
-
-        /* =========================
-           КОММЕНТАРИИ
-        ========================= */
+        /* КОММЕНТАРИИ */
 
         .comments {
-
             margin-top: 30px;
-
             padding-top: 25px;
 
             border-top:
-                1px solid
-                rgba(255,255,255,0.1);
+                1px solid rgba(255, 255, 255, 0.1);
 
             text-align: left;
         }
 
         .comments h2 {
-
             text-align: center;
-
             font-size: 22px;
-
             margin-bottom: 18px;
         }
 
-
         #commentForm {
-
             display: flex;
-
             flex-direction: column;
-
             gap: 10px;
         }
 
         #commentForm input,
         #commentForm textarea {
-
             width: 100%;
-
             padding: 13px;
 
             border-radius: 12px;
 
             border:
-                1px solid
-                rgba(255,255,255,0.1);
+                1px solid rgba(255, 255, 255, 0.1);
 
             background:
-                rgba(255,255,255,0.06);
+                rgba(255, 255, 255, 0.06);
 
             color: white;
-
             outline: none;
 
-            font-family:
-                Arial,
-                sans-serif;
-
+            font-family: Arial, sans-serif;
             font-size: 14px;
         }
 
         #commentForm textarea {
-
             min-height: 90px;
-
             resize: vertical;
         }
 
         #commentForm input::placeholder,
         #commentForm textarea::placeholder {
-
             color: #8f96a3;
         }
 
         #commentForm input:focus,
         #commentForm textarea:focus {
-
-            border-color:
-                #5865f2;
+            border-color: #5865f2;
         }
 
         #commentForm button {
-
             border: 0;
-
             border-radius: 12px;
-
             padding: 13px;
 
-            background:
-                #5865f2;
+            background: #5865f2;
 
             color: white;
-
             font-size: 14px;
-
             font-weight: 700;
 
             cursor: pointer;
-
-            transition:
-                0.2s;
+            transition: 0.2s;
         }
 
         #commentForm button:hover {
-
-            background:
-                #6975f5;
-
-            transform:
-                translateY(-1px);
+            background: #6975f5;
+            transform: translateY(-1px);
         }
 
-
-        /* =========================
-           КНОПКА ВЛАДЕЛЬЦА
-        ========================= */
+        /* ВЛАДЕЛЕЦ */
 
         .owner-button {
-
             width: 100%;
-
             margin-top: 10px;
-
             padding: 9px;
 
             border:
-                1px solid
-                rgba(255,255,255,0.08);
+                1px solid rgba(255, 255, 255, 0.08);
 
             border-radius: 10px;
 
             background:
-                rgba(255,255,255,0.03);
+                rgba(255, 255, 255, 0.03);
 
             color: #777f91;
-
             font-size: 12px;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
 
         .owner-button:hover {
-
             background:
-                rgba(255,255,255,0.08);
+                rgba(255, 255, 255, 0.08);
 
             color: white;
         }
 
-
-        /* =========================
-           СПИСОК КОММЕНТАРИЕВ
-        ========================= */
+        /* СПИСОК КОММЕНТАРИЕВ */
 
         #commentsList {
-
             display: flex;
-
             flex-direction: column;
-
             gap: 10px;
-
             margin-top: 20px;
         }
 
-
         .comment {
-
             padding: 13px;
-
             border-radius: 12px;
 
             background:
-                rgba(255,255,255,0.05);
+                rgba(255, 255, 255, 0.05);
 
             border:
-                1px solid
-                rgba(255,255,255,0.07);
+                1px solid rgba(255, 255, 255, 0.07);
 
             animation:
-                commentAppear
-                0.25s ease;
+                commentAppear 0.25s ease;
         }
 
         @keyframes commentAppear {
-
             from {
                 opacity: 0;
                 transform: translateY(5px);
@@ -689,65 +460,42 @@ declare(strict_types=1);
                 opacity: 1;
                 transform: translateY(0);
             }
-
         }
 
         .comment-top {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 10px;
-
             margin-bottom: 6px;
         }
 
         .comment-name {
-
             font-weight: 700;
-
             font-size: 14px;
         }
 
         .comment-date {
-
-            color:
-                #737986;
-
+            color: #737986;
             font-size: 11px;
-
             white-space: nowrap;
         }
 
         .comment-text {
-
-            color:
-                #c4c8d1;
-
+            color: #c4c8d1;
             font-size: 13px;
-
             line-height: 1.5;
-
-            word-break:
-                break-word;
-
-            white-space:
-                pre-wrap;
+            word-break: break-word;
+            white-space: pre-wrap;
         }
 
-
-        /* =========================
-           УДАЛЕНИЕ
-        ========================= */
+        /* УДАЛЕНИЕ */
 
         .delete-comment {
-
             margin-top: 10px;
 
-            border: 0;
+            border:
+                1px solid rgba(220, 50, 50, 0.25);
 
             border-radius: 8px;
 
@@ -756,94 +504,61 @@ declare(strict_types=1);
             background:
                 rgba(220, 50, 50, 0.15);
 
-            border:
-                1px solid
-                rgba(220, 50, 50, 0.25);
-
-            color:
-                #ff7070;
-
+            color: #ff7070;
             font-size: 12px;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
 
         .delete-comment:hover {
-
             background:
                 rgba(220, 50, 50, 0.3);
 
             color: white;
         }
 
-
         .empty-comments {
-
             text-align: center;
-
-            color:
-                #737986;
-
+            color: #737986;
             font-size: 13px;
-
             padding: 15px;
         }
 
-
-        /* =========================
-           УВЕДОМЛЕНИЕ
-        ========================= */
+        /* УВЕДОМЛЕНИЕ */
 
         .toast {
-
             position: fixed;
-
             left: 50%;
-
             bottom: 28px;
 
             transform:
                 translate(-50%, 20px);
 
-            width:
-                min(90%, 430px);
+            width: min(90%, 430px);
 
-            padding:
-                15px 18px;
-
+            padding: 15px 18px;
             border-radius: 14px;
 
-            background:
-                #181c25;
+            background: #181c25;
 
             border:
-                1px solid
-                rgba(35, 211, 102, 0.3);
+                1px solid rgba(35, 211, 102, 0.3);
 
             box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.45);
+                0 15px 40px rgba(0, 0, 0, 0.45);
 
             color: #fff;
-
             font-size: 14px;
-
             line-height: 1.45;
 
             opacity: 0;
-
             pointer-events: none;
 
-            transition:
-                0.25s ease;
-
+            transition: 0.25s ease;
             z-index: 200;
         }
 
         .toast.show {
-
             opacity: 1;
 
             transform:
@@ -851,59 +566,42 @@ declare(strict_types=1);
         }
 
         .toast strong {
-
-            color:
-                #23d366;
+            color: #23d366;
         }
 
-
-        /* =========================
-           МОБИЛЬНАЯ ВЕРСИЯ
-        ========================= */
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
 
         @media (max-width: 500px) {
 
             body {
-
-                align-items:
-                    flex-start;
-
-                padding-top:
-                    80px;
+                align-items: flex-start;
+                padding-top: 80px;
             }
 
             .profile {
-
-                padding:
-                    30px 20px 26px;
+                padding: 30px 20px 26px;
             }
 
             .avatar-wrap {
-
                 width: 130px;
                 height: 130px;
             }
 
             .name {
-
                 font-size: 26px;
             }
 
             .music-toggle {
-
                 top: 15px;
                 right: 15px;
             }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
-
 
     <!-- МУЗЫКА -->
 
@@ -914,7 +612,6 @@ declare(strict_types=1);
         preload="auto">
     </audio>
 
-
     <!-- КНОПКА МУЗЫКИ -->
 
     <button
@@ -924,7 +621,6 @@ declare(strict_types=1);
         aria-label="Управление музыкой">
 
         <svg viewBox="0 0 24 24">
-
             <path d="
                 M12 3v10.55
                 c-.59-.34-1.27-.55-2-.55
@@ -932,16 +628,13 @@ declare(strict_types=1);
                 s1.79 4 4 4
                 4-1.79 4-4V7h4V3h-6z
             "/>
-
         </svg>
 
     </button>
 
-
     <!-- ПРОФИЛЬ -->
 
     <main class="profile">
-
 
         <!-- АВАТАР -->
 
@@ -954,13 +647,11 @@ declare(strict_types=1);
 
         </div>
 
-
         <!-- ИМЯ -->
 
         <h1 class="name">
             NikolayB
         </h1>
-
 
         <!-- СТАТУС -->
 
@@ -972,11 +663,9 @@ declare(strict_types=1);
 
         </div>
 
-
         <!-- КНОПКИ -->
 
         <div class="buttons-container">
-
 
             <!-- DISCORD -->
 
@@ -1020,7 +709,6 @@ declare(strict_types=1);
 
             </button>
 
-
             <!-- STEAM -->
 
             <a
@@ -1045,7 +733,7 @@ declare(strict_types=1);
                         .833 2.972-.913 6.075-3.884 6.908
                         -2.97.834-6.074-.912-6.907-3.883
                         l-.004-.015
-                        c-.4-.1-.13-.485-.502
+                        c-.4-.1-.13-.485-.502-.485
                         l-5.696-2.45
                         c-.417.753-1.042 1.343-1.792 1.691
                         l-.116 4.764
@@ -1075,7 +763,6 @@ declare(strict_types=1);
 
         </div>
 
-
         <!-- ПОДСКАЗКА -->
 
         <p class="hint">
@@ -1086,17 +773,13 @@ declare(strict_types=1);
 
         </p>
 
-
-        <!-- =========================
-             КОММЕНТАРИИ
-        ========================= -->
+        <!-- КОММЕНТАРИИ -->
 
         <section class="comments">
 
             <h2>
                 Комментарии
             </h2>
-
 
             <form id="commentForm">
 
@@ -1107,22 +790,17 @@ declare(strict_types=1);
                     maxlength="30"
                     required>
 
-
                 <textarea
                     id="commentText"
                     placeholder="Напиши комментарий..."
                     maxlength="500"
                     required></textarea>
 
-
                 <button type="submit">
-
                     Оставить комментарий
-
                 </button>
 
             </form>
-
 
             <!-- ВХОД ВЛАДЕЛЬЦА -->
 
@@ -1135,16 +813,13 @@ declare(strict_types=1);
 
             </button>
 
-
-            <!-- КОММЕНТАРИИ -->
+            <!-- СПИСОК КОММЕНТАРИЕВ -->
 
             <div id="commentsList"></div>
 
         </section>
 
-
     </main>
-
 
     <!-- УВЕДОМЛЕНИЕ -->
 
@@ -1165,58 +840,32 @@ declare(strict_types=1);
 
     </div>
 
-
     <script>
 
+        /* DISCORD */
 
-        /* =========================
-           DISCORD
-        ========================= */
-
-        const discordUsername =
-            "niko_1352647832";
+        const discordUsername = "niko_1352647832";
 
         const discordButton =
-            document.getElementById(
-                "discordButton"
-            );
+            document.getElementById("discordButton");
 
         const toast =
-            document.getElementById(
-                "toast"
-            );
+            document.getElementById("toast");
 
         let toastTimeout = null;
-
 
         function showToast() {
 
             if (toastTimeout) {
-
-                clearTimeout(
-                    toastTimeout
-                );
-
+                clearTimeout(toastTimeout);
             }
 
-            toast.classList.add(
-                "show"
-            );
+            toast.classList.add("show");
 
-            toastTimeout =
-                setTimeout(
-                    () => {
-
-                        toast.classList.remove(
-                            "show"
-                        );
-
-                    },
-                    4500
-                );
-
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 4500);
         }
-
 
         discordButton.addEventListener(
             "click",
@@ -1233,81 +882,46 @@ declare(strict_types=1);
                 } catch (error) {
 
                     const textarea =
-                        document.createElement(
-                            "textarea"
-                        );
+                        document.createElement("textarea");
 
                     textarea.value =
                         discordUsername;
 
-                    textarea.style.position =
-                        "fixed";
+                    textarea.style.position = "fixed";
+                    textarea.style.opacity = "0";
 
-                    textarea.style.opacity =
-                        "0";
-
-                    document.body.appendChild(
-                        textarea
-                    );
+                    document.body.appendChild(textarea);
 
                     textarea.select();
 
                     try {
-
-                        document.execCommand(
-                            "copy"
-                        );
-
+                        document.execCommand("copy");
                     } catch (copyError) {
-
-                        console.log(
-                            copyError
-                        );
-
+                        console.log(copyError);
                     }
 
                     textarea.remove();
 
                     showToast();
-
                 }
-
             }
         );
 
-
-        /* =========================
-           МУЗЫКА
-        ========================= */
+        /* МУЗЫКА */
 
         const audio =
-            document.getElementById(
-                "bgMusic"
-            );
+            document.getElementById("bgMusic");
 
         const musicToggle =
-            document.getElementById(
-                "musicToggle"
-            );
-
+            document.getElementById("musicToggle");
 
         function setMusicPlaying() {
-
-            musicToggle.classList.add(
-                "playing"
-            );
-
+            musicToggle.classList.add("playing");
         }
-
 
         function setMusicPaused() {
-
-            musicToggle.classList.remove(
-                "playing"
-            );
-
+            musicToggle.classList.remove("playing");
         }
-
 
         async function startMusic() {
 
@@ -1324,18 +938,13 @@ declare(strict_types=1);
                 console.log(
                     "Автозапуск заблокирован браузером."
                 );
-
             }
-
         }
-
 
         async function firstInteraction() {
 
             if (!audio.paused) {
-
                 return;
-
             }
 
             try {
@@ -1351,11 +960,8 @@ declare(strict_types=1);
                 console.log(
                     "Не удалось запустить музыку."
                 );
-
             }
-
         }
-
 
         function removeFirstInteraction() {
 
@@ -1373,19 +979,12 @@ declare(strict_types=1);
                 "keydown",
                 firstInteraction
             );
-
         }
-
 
         window.addEventListener(
             "load",
-            () => {
-
-                startMusic();
-
-            }
+            startMusic
         );
-
 
         document.addEventListener(
             "click",
@@ -1401,7 +1000,6 @@ declare(strict_types=1);
             "keydown",
             firstInteraction
         );
-
 
         musicToggle.addEventListener(
             "click",
@@ -1430,34 +1028,19 @@ declare(strict_types=1);
                     setMusicPaused();
 
                 }
-
             }
         );
 
-
-        /* =========================
-           КОММЕНТАРИИ
-        ========================= */
+        /* КОММЕНТАРИИ */
 
         const commentForm =
-            document.getElementById(
-                "commentForm"
-            );
+            document.getElementById("commentForm");
 
         const commentsList =
-            document.getElementById(
-                "commentsList"
-            );
+            document.getElementById("commentsList");
 
         const ownerButton =
-            document.getElementById(
-                "ownerButton"
-            );
-
-
-        /* =========================
-           ЗАГРУЗКА КОММЕНТАРИЕВ
-        ========================= */
+            document.getElementById("ownerButton");
 
         async function loadComments() {
 
@@ -1474,20 +1057,11 @@ declare(strict_types=1);
                 const data =
                     await response.json();
 
-
                 if (!data.success) {
-
-                    throw new Error(
-                        "Ошибка загрузки"
-                    );
-
+                    throw new Error("Ошибка загрузки");
                 }
 
-
                 commentsList.innerHTML = "";
-
-
-                /* Если комментариев нет */
 
                 if (
                     !data.comments ||
@@ -1495,260 +1069,152 @@ declare(strict_types=1);
                 ) {
 
                     commentsList.innerHTML = `
-
                         <div class="empty-comments">
-
                             Пока комментариев нет.
-
                         </div>
-
                     `;
 
-                    updateOwnerButton(
-                        data.owner
-                    );
+                    updateOwnerButton(data.owner);
 
                     return;
-
                 }
-
-
-                /*
-                 * Показываем новые комментарии
-                 * сверху
-                 */
 
                 data.comments
                     .slice()
                     .reverse()
-                    .forEach(
-                        comment => {
+                    .forEach(comment => {
 
-                            const element =
-                                document.createElement(
-                                    "div"
-                                );
+                        const element =
+                            document.createElement("div");
 
-                            element.className =
-                                "comment";
+                        element.className = "comment";
 
+                        const top =
+                            document.createElement("div");
 
-                            /* Верхняя часть */
+                        top.className = "comment-top";
 
-                            const top =
-                                document.createElement(
-                                    "div"
-                                );
+                        const name =
+                            document.createElement("div");
 
-                            top.className =
-                                "comment-top";
+                        name.className = "comment-name";
+                        name.textContent = comment.name;
 
+                        const date =
+                            document.createElement("div");
 
-                            /* Имя */
+                        date.className = "comment-date";
+                        date.textContent = comment.date;
 
-                            const name =
-                                document.createElement(
-                                    "div"
-                                );
+                        top.appendChild(name);
+                        top.appendChild(date);
 
-                            name.className =
-                                "comment-name";
+                        const text =
+                            document.createElement("div");
 
-                            name.textContent =
-                                comment.name;
+                        text.className = "comment-text";
+                        text.textContent = comment.text;
 
+                        element.appendChild(top);
+                        element.appendChild(text);
 
-                            /* Дата */
+                        if (data.owner) {
 
-                            const date =
-                                document.createElement(
-                                    "div"
-                                );
+                            const deleteButton =
+                                document.createElement("button");
 
-                            date.className =
-                                "comment-date";
+                            deleteButton.className =
+                                "delete-comment";
 
-                            date.textContent =
-                                comment.date;
+                            deleteButton.type = "button";
+                            deleteButton.textContent = "Удалить";
 
+                            deleteButton.addEventListener(
+                                "click",
+                                async () => {
 
-                            top.appendChild(
-                                name
-                            );
+                                    if (
+                                        !confirm(
+                                            "Удалить этот комментарий?"
+                                        )
+                                    ) {
+                                        return;
+                                    }
 
-                            top.appendChild(
-                                date
-                            );
+                                    const formData =
+                                        new FormData();
 
-
-                            /* Текст */
-
-                            const text =
-                                document.createElement(
-                                    "div"
-                                );
-
-                            text.className =
-                                "comment-text";
-
-                            text.textContent =
-                                comment.text;
-
-
-                            element.appendChild(
-                                top
-                            );
-
-                            element.appendChild(
-                                text
-                            );
-
-
-                            /*
-                             * Кнопка удаления
-                             * видна ТОЛЬКО владельцу
-                             */
-
-                            if (data.owner) {
-
-                                const deleteButton =
-                                    document.createElement(
-                                        "button"
+                                    formData.append(
+                                        "action",
+                                        "delete"
                                     );
 
-                                deleteButton.className =
-                                    "delete-comment";
+                                    formData.append(
+                                        "id",
+                                        comment.id
+                                    );
 
-                                deleteButton.type =
-                                    "button";
+                                    try {
 
-                                deleteButton.textContent =
-                                    "Удалить";
-
-
-                                deleteButton.addEventListener(
-                                    "click",
-                                    async () => {
-
-                                        const confirmed =
-                                            confirm(
-                                                "Удалить этот комментарий?"
+                                        const response =
+                                            await fetch(
+                                                "comments.php",
+                                                {
+                                                    method: "POST",
+                                                    body: formData,
+                                                    credentials:
+                                                        "same-origin"
+                                                }
                                             );
 
+                                        const result =
+                                            await response.json();
 
-                                        if (!confirmed) {
+                                        if (result.success) {
 
-                                            return;
+                                            loadComments();
 
-                                        }
-
-
-                                        const formData =
-                                            new FormData();
-
-
-                                        formData.append(
-                                            "action",
-                                            "delete"
-                                        );
-
-                                        formData.append(
-                                            "id",
-                                            comment.id
-                                        );
-
-
-                                        try {
-
-                                            const response =
-                                                await fetch(
-                                                    "comments.php",
-                                                    {
-                                                        method: "POST",
-                                                        body: formData,
-                                                        credentials: "same-origin"
-                                                    }
-                                                );
-
-
-                                            const result =
-                                                await response.json();
-
-
-                                            if (
-                                                result.success
-                                            ) {
-
-                                                loadComments();
-
-                                            } else {
-
-                                                alert(
-                                                    result.message ||
-                                                    "Не удалось удалить комментарий."
-                                                );
-
-                                            }
-
-                                        } catch (error) {
-
-                                            console.error(
-                                                error
-                                            );
+                                        } else {
 
                                             alert(
-                                                "Ошибка удаления комментария."
+                                                result.message ||
+                                                "Не удалось удалить комментарий."
                                             );
-
                                         }
 
+                                    } catch (error) {
+
+                                        console.error(error);
+
+                                        alert(
+                                            "Ошибка удаления комментария."
+                                        );
                                     }
-                                );
-
-
-                                element.appendChild(
-                                    deleteButton
-                                );
-
-                            }
-
-
-                            commentsList.appendChild(
-                                element
+                                }
                             );
 
+                            element.appendChild(deleteButton);
                         }
-                    );
 
+                        commentsList.appendChild(element);
 
-                updateOwnerButton(
-                    data.owner
-                );
+                    });
+
+                updateOwnerButton(data.owner);
 
             } catch (error) {
 
-                console.error(
-                    error
-                );
+                console.error(error);
 
                 commentsList.innerHTML = `
-
                     <div class="empty-comments">
-
                         Не удалось загрузить комментарии.
-
                     </div>
-
                 `;
-
             }
-
         }
 
-
-        /* =========================
-           ДОБАВЛЕНИЕ КОММЕНТАРИЯ
-        ========================= */
+        /* ДОБАВЛЕНИЕ */
 
         commentForm.addEventListener(
             "submit",
@@ -1756,55 +1222,35 @@ declare(strict_types=1);
 
                 event.preventDefault();
 
-
                 const name =
                     document
-                        .getElementById(
-                            "commentName"
-                        )
+                        .getElementById("commentName")
                         .value
                         .trim();
-
 
                 const text =
                     document
-                        .getElementById(
-                            "commentText"
-                        )
+                        .getElementById("commentText")
                         .value
                         .trim();
 
-
                 if (!text) {
 
-                    alert(
-                        "Напиши комментарий."
-                    );
+                    alert("Напиши комментарий.");
 
                     return;
-
                 }
-
 
                 const formData =
                     new FormData();
 
-
-                formData.append(
-                    "action",
-                    "add"
-                );
-
+                formData.append("action", "add");
                 formData.append(
                     "name",
                     name || "Гость"
                 );
 
-                formData.append(
-                    "text",
-                    text
-                );
-
+                formData.append("text", text);
 
                 try {
 
@@ -1818,10 +1264,8 @@ declare(strict_types=1);
                             }
                         );
 
-
                     const result =
                         await response.json();
-
 
                     if (!result.success) {
 
@@ -1831,34 +1275,24 @@ declare(strict_types=1);
                         );
 
                         return;
-
                     }
-
 
                     commentForm.reset();
 
                     loadComments();
 
-
                 } catch (error) {
 
-                    console.error(
-                        error
-                    );
+                    console.error(error);
 
                     alert(
                         "Ошибка при добавлении комментария."
                     );
-
                 }
-
             }
         );
 
-
-        /* =========================
-           ВХОД ВЛАДЕЛЬЦА
-        ========================= */
+        /* ВХОД ВЛАДЕЛЬЦА */
 
         async function ownerLogin() {
 
@@ -1867,28 +1301,15 @@ declare(strict_types=1);
                     "Введите пароль владельца:"
                 );
 
-
             if (!password) {
-
                 return;
-
             }
-
 
             const formData =
                 new FormData();
 
-
-            formData.append(
-                "action",
-                "login"
-            );
-
-            formData.append(
-                "password",
-                password
-            );
-
+            formData.append("action", "login");
+            formData.append("password", password);
 
             try {
 
@@ -1902,10 +1323,8 @@ declare(strict_types=1);
                         }
                     );
 
-
                 const result =
                     await response.json();
-
 
                 if (result.success) {
 
@@ -1917,42 +1336,25 @@ declare(strict_types=1);
 
                 } else {
 
-                    alert(
-                        "Неверный пароль."
-                    );
-
+                    alert("Неверный пароль.");
                 }
 
             } catch (error) {
 
-                console.error(
-                    error
-                );
+                console.error(error);
 
-                alert(
-                    "Ошибка входа."
-                );
-
+                alert("Ошибка входа.");
             }
-
         }
 
-
-        /* =========================
-           ВЫХОД ВЛАДЕЛЬЦА
-        ========================= */
+        /* ВЫХОД */
 
         async function ownerLogout() {
 
             const formData =
                 new FormData();
 
-
-            formData.append(
-                "action",
-                "logout"
-            );
-
+            formData.append("action", "logout");
 
             try {
 
@@ -1969,22 +1371,11 @@ declare(strict_types=1);
 
             } catch (error) {
 
-                console.error(
-                    error
-                );
-
+                console.error(error);
             }
-
         }
 
-
-        /* =========================
-           КНОПКА ВЛАДЕЛЬЦА
-        ========================= */
-
-        function updateOwnerButton(
-            isOwner
-        ) {
+        function updateOwnerButton(isOwner) {
 
             if (isOwner) {
 
@@ -2001,15 +1392,10 @@ declare(strict_types=1);
 
                 ownerButton.onclick =
                     ownerLogin;
-
             }
-
         }
 
-
-        /* =========================
-           ЗАПУСК
-        ========================= */
+        /* ЗАПУСК */
 
         loadComments();
 
@@ -2018,4 +1404,4 @@ declare(strict_types=1);
 </body>
 
 </html>
-```
+
